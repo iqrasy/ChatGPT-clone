@@ -1,17 +1,12 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { GoShare } from "react-icons/go/index.esm.js";
-import { GoPerson } from "react-icons/go/index.esm.js";
-import { BsChatLeft } from "react-icons/bs/index.esm.js";
-import { BsLayoutSidebar } from "react-icons/bs/index.esm.js";
-import { FiEdit3 } from "react-icons/fi/index.esm.js";
-import { RiDeleteBinLine } from "react-icons/ri/index.esm.js";
 import Sidebar from "./Sidebar.js";
 
 const Header = () => {
+	
 	return (
 		<HeaderContainer>
-			{/* <Sidebar /> */}
 			<nav>
 				<Title>
 					<p>Default (GPT-3.5) </p>
@@ -61,3 +56,5 @@ const Title = styled.div`
 const Icon = styled.div`
 	margin-right: 1rem;
 `;
+
+

@@ -163,8 +163,8 @@ const Sidebars = styled.section`
 
 	nav {
 		border-top: solid 0.1em rgba(255, 255, 255, 0.3);
-		padding: 0 0.7em;
-		margin: 0.7em;
+		padding: 0.7em;
+		margin: 4em 0.7em;
 	}
 
 	ul {
@@ -175,6 +175,7 @@ const Sidebars = styled.section`
 	}
 
 	p {
+		
 		font-size: 0.9em;
 	}
 

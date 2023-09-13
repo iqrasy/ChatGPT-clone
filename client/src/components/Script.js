@@ -19,12 +19,11 @@ const Script = () => {
 	const [isTyping, setIsTyping] = useState(false);
 
 	const handleInput = (e) => {
-		e.preventDefault();
 		setValue(e.target.value);
 		setIsTyping(true);
 	};
 
-	const callApi = async (req, res) => {
+	const callApi = async () => {
 		console.log("calling api");
 
 		try {
@@ -49,9 +48,15 @@ const Script = () => {
 
 			const data = await response.json();
 			setMessages(data.choices[0].message);
+			setValue(" ");
 		} catch (error) {
 			console.error("Error:", error);
 		}
+	};
+
+	const handleKeyPress = (e) => {
+		e.preventDefault();
+		setValue("");
 	};
 
 	useEffect(() => {
@@ -138,15 +143,14 @@ const Script = () => {
 					<Bottom>
 						<Input>
 							<Text>
-								<span role="textbox" contentEditable>
-									<textarea
-										tabIndex={0}
-										rows={1}
-										onChange={handleInput}
-										placeholder="Send a message"
-										value={value}
-									/>
-								</span>
+								<textarea
+									// onClick={(e) => textarea.value = ""}
+									tabIndex={0}
+									rows={1}
+									onChange={handleInput}
+									placeholder="Send a message"
+									value={value}
+								/>
 								<button onClick={callApi}>
 									<span>▶︎</span>
 								</button>
@@ -257,10 +261,7 @@ const Bottom = styled.div`
 	align-items: center;
 	position: fixed;
 	bottom: 0;
-	/* right: 0;
-	left: 7em; */
-	padding: 1rem;
-	width: 99%;
+	width: 100%;
 	z-index: 40;
 	background-image: linear-gradient(
 		180deg,
@@ -268,13 +269,18 @@ const Bottom = styled.div`
 		#353740 58.85%
 	);
 	background: linear-gradient(to bottom, rgba(53, 55, 64, 0), #353740 58.85%);
+
+	/* @media (min-width: 768px) {
+		max-width: calc(100% - 300px);
+		margin-left: auto;
+	} */
 `;
 
 const Input = styled.div`
 	width: 100%;
 	gap: 0.75rem;
 	padding: 0 1rem;
-	max-width: 70em;
+	max-width: 55em;
 	border-color: hsla(0, 0%, 100%, 0.2);
 `;
 
@@ -291,6 +297,7 @@ const Text = styled.div`
 	position: relative;
 
 	textarea {
+		outline: none;
 		height: 24px;
 		overflow-y: hidden;
 		background-color: transparent;
