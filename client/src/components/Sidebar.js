@@ -55,7 +55,8 @@ const Sidebar = ({ chat, setCurrent, current, setValue, setMessages }) => {
 											<BsChatLeft
 												style={{ fontSize: "0.8em", marginRight: ".7em" }}
 											/>
-											{uniqueTitle}
+											<a>{uniqueTitle}</a>
+
 											<Empty
 												className={
 													uniqueTitle === selectedItem ? "selected" : ""
@@ -66,8 +67,16 @@ const Sidebar = ({ chat, setCurrent, current, setValue, setMessages }) => {
 									<Div
 										className={uniqueTitle === selectedItem ? "selected" : ""}
 									>
-										<FiEdit3 />
-										<RiDeleteBinLine />
+										<div>
+											<button>
+												<FiEdit3 />
+											</button>
+										</div>
+										<div>
+											<button>
+												<RiDeleteBinLine />
+											</button>
+										</div>
 									</Div>
 								</Main>
 							</Li>
@@ -96,10 +105,11 @@ const Empty = styled.div`
 	position: absolute;
 	top: 0;
 	left: 0;
-	width: 100%;
+	width: 15em;
 	height: 100%;
 	background-image: linear-gradient(to left, #202123, transparent);
 	opacity: 1;
+	/* border: solid red 1px; */
 
 	&:hover {
 		background-image: linear-gradient(to left, rgba(52, 53, 65), transparent);
@@ -111,7 +121,7 @@ const Empty = styled.div`
 	&.selected {
 		padding: 0.7em 0;
 		border-radius: 0.5em;
-		width: 15em;
+		width: 100%;
 		background-image: linear-gradient(to left, rgba(52, 53, 65), transparent);
 		opacity: 1;
 	}
@@ -175,7 +185,6 @@ const Sidebars = styled.section`
 	}
 
 	p {
-		
 		font-size: 0.9em;
 	}
 
@@ -198,8 +207,19 @@ const Div = styled.div`
 	align-items: start;
 	z-index: 2;
 	visibility: hidden;
-
 	opacity: 1;
+
+	button {
+		background-color: transparent;
+		outline: none;
+		border: none;
+		color: white;
+		padding: 0.3em;
+		&:hover {
+			color: rgba(255, 255, 255, 0.8);
+			cursor: pointer;
+		}
+	}
 	&.selected {
 		visibility: visible;
 	}

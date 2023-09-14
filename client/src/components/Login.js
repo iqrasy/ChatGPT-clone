@@ -10,7 +10,7 @@ const Login = () => {
 
   // navigate to homepage when user is logged in/signed up
   const handleNavigate = () => {
-    navigate("/");
+    navigate("/home");
   };
 
   return (

@@ -38,7 +38,7 @@ const Script = () => {
 					body: JSON.stringify({
 						model: "gpt-3.5-turbo",
 						messages: [{ role: "user", content: value }],
-						max_tokens: 100,
+						max_tokens: 500,
 					}),
 				}
 			);
@@ -255,10 +255,9 @@ const Icons = styled.div`
 `;
 
 const Bottom = styled.div`
+	/* border: solid pink 1px; */
 	display: flex;
-	flex-direction: column;
 	justify-content: center;
-	align-items: center;
 	position: fixed;
 	bottom: 0;
 	width: 100%;
@@ -269,17 +268,13 @@ const Bottom = styled.div`
 		#353740 58.85%
 	);
 	background: linear-gradient(to bottom, rgba(53, 55, 64, 0), #353740 58.85%);
-
-	/* @media (min-width: 768px) {
-		max-width: calc(100% - 300px);
-		margin-left: auto;
-	} */
 `;
 
 const Input = styled.div`
 	width: 100%;
 	gap: 0.75rem;
-	padding: 0 1rem;
+	margin: 1rem 0;
+	padding: 1rem 6rem 1rem 0;
 	max-width: 55em;
 	border-color: hsla(0, 0%, 100%, 0.2);
 `;

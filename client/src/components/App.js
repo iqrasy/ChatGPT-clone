@@ -9,7 +9,7 @@ const App = () => {
 			<BrowserRouter>
 				<GlobalStyles />
 				<Routes>
-					<Route path="/" element={<Script />} />
+					<Route path="/home" element={<Script />} />
 				</Routes>
 			</BrowserRouter>
 		</div>
