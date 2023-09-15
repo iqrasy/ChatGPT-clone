@@ -54,11 +54,6 @@ const Script = () => {
 		}
 	};
 
-	const handleKeyPress = (e) => {
-		e.preventDefault();
-		setValue("");
-	};
-
 	useEffect(() => {
 		if (!current && value && messages) {
 			setCurrent(value);
@@ -89,7 +84,6 @@ const Script = () => {
 
 	useEffect(() => {
 		localStorage.setItem("chat", JSON.stringify(chat));
-		// console.log(chat);
 	}, [chat]);
 
 	const currentChat = chat.filter((chat) => chat.title === current);
@@ -144,7 +138,6 @@ const Script = () => {
 						<Input>
 							<Text>
 								<textarea
-									// onClick={(e) => textarea.value = ""}
 									tabIndex={0}
 									rows={1}
 									onChange={handleInput}
