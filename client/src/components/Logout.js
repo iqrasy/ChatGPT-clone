@@ -3,18 +3,25 @@ import React from "react";
 import styled from "styled-components";
 
 const Logout = () => {
-	// logout through auth0
-	const { logout } = useAuth0();
 
+	const { logout, user, isAuthenticated } = useAuth0();
+
+	console.log(user);
 	return (
 		<>
-			<Button
-				onClick={() =>
-					logout({ logoutParams: { returnTo: window.location.origin } })
-				}
-			>
-				Log Out
-			</Button>
+			{isAuthenticated ? (
+				<>
+					<img src={user.picture} />
+					<p style={{ fontSize: "1em" }}>{user.nickname}</p>
+					<Button
+						onClick={() =>
+							logout({ logoutParams: { returnTo: window.location.origin } })
+						}
+					>
+						Log Out
+					</Button>
+				</>
+			) : null}
 		</>
 	);
 };

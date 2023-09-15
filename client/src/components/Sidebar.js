@@ -5,9 +5,10 @@ import { BsChatLeft } from "react-icons/bs/index.esm.js";
 import { BsLayoutSidebar } from "react-icons/bs/index.esm.js";
 import { FiEdit3 } from "react-icons/fi/index.esm.js";
 import { RiDeleteBinLine } from "react-icons/ri/index.esm.js";
+import Logout from "./Logout.js";
 
 const Sidebar = ({ chat, setCurrent, current, setValue, setMessages }) => {
-	const [isOpen, setIsOpen] = useState(false);
+	const [isOpen, setIsOpen] = useState(true);
 	const [selectedItem, setSelectedItem] = useState(null);
 
 	const handleClick = (uniqueTitle) => {
@@ -87,8 +88,10 @@ const Sidebar = ({ chat, setCurrent, current, setValue, setMessages }) => {
 							<GoPerson style={{ fontSize: "1.1em", marginRight: "1em" }} />
 							Upgrade to Plus <span>NEW</span>
 						</p>
-						<p style={{ fontSize: "1em" }}>Iqra Syed</p>
 					</nav>
+					<div>
+					<Logout />
+					</div>
 				</Sidebars>
 			) : (
 				<Open onClick={toggleBar}>

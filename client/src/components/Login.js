@@ -1,28 +1,37 @@
-import React from "react";
+import React, {useEffect} from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
+import Logout from "./Logout.js";
+import Script from "./Script.js";
 
 const Login = () => {
-
 	// login/sign up through auth0
-	const { loginWithRedirect, isAuthenticated } = useAuth0();
+	const { user, loginWithRedirect, isAuthenticated, logout } = useAuth0();
 	const navigate = useNavigate();
 
 	// navigate to homepage when user is logged in/signed up
-	const handleNavigate = () => {
-		navigate("/");
-	};
+	useEffect(() => {
+		if (isAuthenticated) {
+			navigate("/home");
+		}
+	}, [isAuthenticated, navigate]);
 
 	return (
-		<Main>
-			<h1>Get started</h1>
-			<div style={{ padding: ".5em" }}></div>
-			<Div>
-				<button onClick={() => handleNavigate()}>Log in</button>
-				<button onClick={() => loginWithRedirect()}>Sign up</button>
-			</Div>
-		</Main>
+		<>
+			{isAuthenticated ? (
+				<Script />
+			) : (
+				<Main>
+					<h1>Get started</h1>
+					<div style={{ padding: ".5em" }}></div>
+					<Div>
+						<button onClick={() => loginWithRedirect()}>Log in</button>
+						<button onClick={() => loginWithRedirect()}>Sign up</button>
+					</Div>
+				</Main>
+			)}
+		</>
 	);
 };
 

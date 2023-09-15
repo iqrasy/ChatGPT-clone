@@ -2,7 +2,8 @@ import React from "react";
 import { Route, BrowserRouter, Routes } from "react-router-dom";
 import Script from "./Script.js";
 import GlobalStyles from "./GlobalStyle.js";
-import Home from "./Home.js"
+import Home from "./Home.js";
+
 
 const App = () => {
 	return (
