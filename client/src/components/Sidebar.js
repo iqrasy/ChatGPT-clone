@@ -89,9 +89,9 @@ const Sidebar = ({ chat, setCurrent, current, setValue, setMessages }) => {
 							Upgrade to Plus <span>NEW</span>
 						</p>
 					</nav>
-					<div>
+					{/* <div> */}
 					<Logout />
-					</div>
+					{/* </div> */}
 				</Sidebars>
 			) : (
 				<Open onClick={toggleBar}>
@@ -177,7 +177,7 @@ const Sidebars = styled.section`
 	nav {
 		border-top: solid 0.1em rgba(255, 255, 255, 0.3);
 		padding: 0.7em;
-		margin: 4em 0.7em;
+		margin: 0em 0.7em;
 	}
 
 	ul {

@@ -3,15 +3,20 @@ import Login from "./Login.js";
 import styled from "styled-components";
 import logos from "../assets/logos.png";
 import Typed from "typed.js";
-// homeage is where the login button will be, asking user to login or to signup
+
 const Home = () => {
 	const el = useRef(null);
 	const text = [
-		"Help me pick a gift for my dad who loves fishing",
-		"Write a thank you note for my interviewer",
-		"Help me debug a python script automating daily reports",
-		"Brainstorm names for an orange cat we're adopting",
-		"Draft an email to request a quote from a local plumber",
+		"<span>Help me pick<span>a gift for my dad who loves fishing",
+		"<span>Write a thank you<span>note for my interviewer",
+		"<span>Help me debug<span>a python script automating daily reports",
+		"<span>Brainstorm names<span>for an orange cat we're adopting",
+		"<span>Brainstorm names<span>for my fantasy football league",
+		"<span>Draft an email<span>to request a quote from a local plumber",
+		"<span>Draft an email<span>to request a deadline extention for my project",
+		"<span>Give me ideas<span>for what to do with my kids art",
+		"<span>Plan a trip<span>to see the northern lights in norway",
+		"<span>Plan a trip<span>to experience Seol like a local",
 	];
 
 	useEffect(() => {
@@ -150,14 +155,14 @@ const Third = styled.div`
 
 const Log = styled.div`
 	color: rgba(255, 255, 255, 1);
-	padding: 2rem 1.5rem;
+	padding: 2rem 5rem;
 	background-color: rgba(0, 0, 0, 1);
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	position: relative;
-	width: 53em;
+	width: 55em;
 `;
 
 const Image = styled.div`

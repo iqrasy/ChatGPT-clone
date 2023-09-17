@@ -1,14 +1,36 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { FaRegArrowAltCircleDown } from "react-icons/fa/index.esm.js";
 
 const Scroll = () => {
+	const [scrollToTop, setScrollToTop] = useState(false);
+
+	useEffect(() => {
+		const checkScrollTop = () => {
+			if (!scrollToTop && window.pageYOffset > 400) {
+				setScrollToTop(true);
+			} else if (isVisible && window.pageYOffset <= 400) {
+				setScrollToTop(false);
+			}
+		};
+
+		window.addEventListener("scroll", checkScrollTop);
+		return () => window.removeEventListener("scroll", checkScrollTop);
+	}, [scrollToTop]);
+
+	const scroll = () => {
+		window.scrollTo({
+			top: 0,
+			behavior: "smooth",
+		});
+	};
+
 	return (
 		<Div className="top-to-btm">
 			<Icon>
-				<line x1={12} y1={5} x2={12} y2={19}></line>
-				<polyline points="19 12 12 19 5 12"></polyline>
-				{/* <FaRegArrowAltCircleDown className="icon-position icon-style" /> */}
+				<button onClick={scroll}>
+					<FaRegArrowAltCircleDown className="icon-position icon-style" />
+				</button>
 			</Icon>
 		</Div>
 	);
@@ -24,17 +46,19 @@ const Div = styled.div`
 `;
 
 const Icon = styled.div`
-	background-color: hsla(0, 0%, 100%, 0.1);
-	border-width: 1px;
-	border-color: hsla(0, 0%, 100%, 0.1);
-	font-size: 1.3rem;
-	color: rgba(217, 217, 227, 1);
 	margin: 0;
 	padding: 0;
 	cursor: pointer;
 	border-radius: 10em;
-	/* animation: movebtn 3s ease-in-out infinite; */
 	transition: all 0.5s ease-in-out;
+
+	button{
+		background-color: transparent;
+		outline: none;
+		border: none;
+		font-size: 1.3em;
+		color: #fff;
+	}
 
 	&:hover {
 		animation: none;

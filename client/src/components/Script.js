@@ -47,7 +47,8 @@ const Script = () => {
 			}
 
 			const data = await response.json();
-			setMessages(data.choices[0].message);
+			setMessages(data);
+			console.log(setMessages);
 			setValue(" ");
 		} catch (error) {
 			console.error("Error:", error);
@@ -91,6 +92,8 @@ const Script = () => {
 		new Set(chat.map((currentChat) => currentChat.title))
 	);
 
+	console.log(chat);
+
 	return (
 		<>
 			<Main>
@@ -105,7 +108,10 @@ const Script = () => {
 					<Header />
 					<First>
 						{currentChat?.map((item, i) => (
-							<ul className={item.role === "assistant" ? "assistant" : "user"}>
+							<ul
+								key={i}
+								className={item.role === "assistant" ? "assistant" : "user"}
+							>
 								<li key={i}>
 									<Div>
 										{item.role === "assistant" ? (
@@ -253,7 +259,7 @@ const Bottom = styled.div`
 	justify-content: center;
 	position: fixed;
 	bottom: 0;
-	width: 100%;
+	width: 90%;
 	z-index: 40;
 	background-image: linear-gradient(
 		180deg,
@@ -273,7 +279,7 @@ const Input = styled.div`
 `;
 
 const Text = styled.div`
-	box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+	box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
 	color: rgba(255, 255, 255, 1);
 	background-color: rgba(64, 65, 79, 1);
 	border-color: rgba(32, 33, 35, 0.5);
@@ -289,13 +295,8 @@ const Text = styled.div`
 		height: 24px;
 		overflow-y: hidden;
 		background-color: transparent;
-		padding-right: 3rem;
-		padding-left: 0;
-		border-width: 0;
 		width: 100%;
 		margin: 0;
-		border-color: #8e8ea0;
-		border-radius: 0;
 		padding: 0 1.5rem;
 		line-height: 1.5rem;
 		resize: none;
