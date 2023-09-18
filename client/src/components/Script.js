@@ -9,18 +9,15 @@ import {
 	FiThumbsDown,
 	FiClipboard,
 } from "react-icons/fi/index.esm.js";
-import Scroll from "./Scroll.js";
 
 const Script = () => {
 	const [value, setValue] = useState("");
 	const [messages, setMessages] = useState([]);
 	const [chat, setChat] = useState([]);
 	const [current, setCurrent] = useState(null);
-	const [isTyping, setIsTyping] = useState(false);
 
 	const handleInput = (e) => {
 		setValue(e.target.value);
-		setIsTyping(true);
 	};
 
 	const callApi = async () => {
@@ -48,7 +45,6 @@ const Script = () => {
 
 			const data = await response.json();
 			setMessages(data.choices[0].message);
-			// setValue(" ");
 		} catch (error) {
 			console.error("Error:", error);
 		}
@@ -152,7 +148,6 @@ const Script = () => {
 									<span>▶︎</span>
 								</button>
 							</Text>
-							<Scroll />
 							<FootText>
 								<span>
 									Free Research Preview. ChatGPT may produce inaccurate
