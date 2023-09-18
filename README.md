@@ -1,16 +1,17 @@
 # ChatGPT Clone
 
-This project is a ChatGPT clone developed using the OpenAI API, specifically utilizing the 'gpt-3.5-turbo' model. 
-It is implemented as a single-page React application, featuring user authentication and signup functionality powered by Auth0. 
+This project is a ChatGPT clone developed using the OpenAI API, specifically utilizing the 'gpt-3.5-turbo' model.
+It is implemented as a single-page React application, featuring user authentication and signup functionality powered by Auth0.
 Auth0 also provides conversation tracking capabilities, enabling seamless management of user interactions and chat history.
 
 ## GETTING STARTED
 
 To get started with ChatGPT Clone, follow these simple steps:
 
-### PREREQUISITES 
+### PREREQUISITES
 
 Before you begin, ensure you have met the following requirements:
+
 - Node.js installed on your local machine
 
 ### INSTALLATION
@@ -30,7 +31,13 @@ Before you begin, ensure you have met the following requirements:
    ```
 
 ### USAGE
+
 1. Start the development server
    ```bash
    npm start
    ```
+
+### PREVIEW
+
+![](landing.png)
+![](chat.png)
