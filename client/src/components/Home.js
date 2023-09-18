@@ -7,16 +7,16 @@ import Typed from "typed.js";
 const Home = () => {
 	const el = useRef(null);
 	const text = [
-		"<span>Help me pick<span>a gift for my dad who loves fishing",
-		"<span>Write a thank you<span>note for my interviewer",
-		"<span>Help me debug<span>a python script automating daily reports",
-		"<span>Brainstorm names<span>for an orange cat we're adopting",
-		"<span>Brainstorm names<span>for my fantasy football league",
-		"<span>Draft an email<span>to request a quote from a local plumber",
-		"<span>Draft an email<span>to request a deadline extention for my project",
-		"<span>Give me ideas<span>for what to do with my kids art",
-		"<span>Plan a trip<span>to see the northern lights in norway",
-		"<span>Plan a trip<span>to experience Seol like a local",
+		"Help me pick a gift for my dad who loves fishing",
+		"Write a thank you note for my interviewer",
+		"Help me debug a python script automating daily reports",
+		"Brainstorm names for an orange cat we're adopting",
+		"Brainstorm names for my fantasy football league",
+		"Draft an email to request a quote from a local plumber",
+		"Draft an email to request a deadline extention for my project",
+		"Give me ideas for what to do with my kids art",
+		"Plan a trip to see the northern lights in norway",
+		"Plan a trip to experience Seoul like a local",
 	];
 
 	useEffect(() => {

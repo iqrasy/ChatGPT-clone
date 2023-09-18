@@ -40,7 +40,7 @@ export default Login;
 const Main = styled.div`
 	max-width: 440px;
 	width: 100%;
-	margin: 1.25rem;
+	margin: 1rem 0;
 	text-align: center;
 
 	h1 {
@@ -59,7 +59,7 @@ const Div = styled.div`
 	display: grid;
 	row-gap: 0;
 	grid-template-columns: repeat(2, minmax(0, 1fr));
-	column-gap: 0.75rem;
+	column-gap: 4rem;
 	text-align: center;
 
 	button {
