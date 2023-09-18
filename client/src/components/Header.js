@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { GoShare } from "react-icons/go/index.esm.js";
-import Sidebar from "./Sidebar.js";
 
 const Header = () => {
 	return (

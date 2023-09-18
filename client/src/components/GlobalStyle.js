@@ -23,7 +23,6 @@ html {
   background: #343541;
 }
 
-/* Handle */
 ::-webkit-scrollbar-thumb {
   background-color: rgba(217,217,227,.8);
   border-color: rgba(255,255,255);
@@ -31,13 +30,10 @@ html {
   border-width: 1px;
 }
 
-/* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
     background-color: rgba(217,217,227,.9);
 
 }
-
-
 
 
 body {

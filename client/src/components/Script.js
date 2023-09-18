@@ -10,7 +10,6 @@ import {
 	FiClipboard,
 } from "react-icons/fi/index.esm.js";
 import Scroll from "./Scroll.js";
-import { useAuth0 } from "@auth0/auth0-react";
 
 const Script = () => {
 	const [value, setValue] = useState("");
@@ -18,7 +17,6 @@ const Script = () => {
 	const [chat, setChat] = useState([]);
 	const [current, setCurrent] = useState(null);
 	const [isTyping, setIsTyping] = useState(false);
-	const { user, isAuthenticated } = useAuth0();
 
 	const handleInput = (e) => {
 		setValue(e.target.value);
@@ -239,7 +237,6 @@ const Div = styled.div`
 
 	@media only screen and (max-width: 480px) {
 		padding: 1em;
-
 	}
 `;
 
@@ -302,8 +299,6 @@ const Text = styled.div`
 	display: flex;
 	padding: 1rem 0;
 	position: relative;
-
-
 
 	textarea {
 		outline: none;

@@ -2,15 +2,12 @@ import React, { useEffect } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
-import Logout from "./Logout.js";
 import Script from "./Script.js";
 
 const Login = () => {
-	// login/sign up through auth0
-	const { user, loginWithRedirect, isAuthenticated, logout } = useAuth0();
+	const { loginWithRedirect, isAuthenticated } = useAuth0();
 	const navigate = useNavigate();
 
-	// navigate to homepage when user is logged in/signed up
 	useEffect(() => {
 		if (isAuthenticated) {
 			navigate("/home");

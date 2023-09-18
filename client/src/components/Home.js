@@ -120,7 +120,6 @@ const Div = styled.div`
 	}
 
 	span {
-		/* border: solid pink 1px; */
 		max-width: 19em;
 		position: relative;
 		padding: 1rem;
@@ -140,11 +139,9 @@ const Third = styled.div`
 	font-size: 0.75rem;
 	line-height: 1rem;
 	padding: 0.75rem 0;
-	/* background-color: rgba(0, 0, 0, 1); */
 	display: flex;
 	justify-content: flex-end;
 	align-items: center;
-	/* flex-direction: column; */
 
 	a {
 		color: rgba(142, 142, 160, 1);
@@ -172,8 +169,6 @@ const Log = styled.div`
 		width: 100%;
 		height: 55rem;
 		display: flex;
-		/* margin: 0; */
-		/* padding: 0; */
 	}
 `;
 
@@ -191,10 +186,4 @@ const Image = styled.div`
 	p {
 		padding: 0.4em;
 	}
-`;
-
-const Type = styled.span`
-	display: flex;
-	justify-content: center;
-	align-items: flex-start;
 `;

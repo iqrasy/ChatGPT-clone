@@ -7,9 +7,9 @@ const Scroll = () => {
 
 	useEffect(() => {
 		const checkScrollTop = () => {
-			if (!scrollToTop && window.pageYOffset > 400) {
+			if (!scrollToTop && window.scrollY > 400) {
 				setScrollToTop(true);
-			} else if (isVisible && window.pageYOffset <= 400) {
+			} else if (isVisible && window.scrollY <= 400) {
 				setScrollToTop(false);
 			}
 		};
@@ -26,7 +26,7 @@ const Scroll = () => {
 	};
 
 	return (
-		<Div className="top-to-btm">
+		<Div className={`top-to-btm ${scrollToTop ? "visible" : ""}`}>
 			<Icon>
 				<button onClick={scroll}>
 					<FaRegArrowAltCircleDown className="icon-position icon-style" />

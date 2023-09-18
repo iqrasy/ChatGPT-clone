@@ -35,20 +35,16 @@ const Sidebar = ({ chat, setCurrent, current, setValue, setMessages }) => {
 
 	const updateSidebarState = () => {
 		if (window.innerWidth <= 480) {
-			setIsOpen(false); // Close the sidebar for small screens
+			setIsOpen(false);
 		} else {
-			setIsOpen(true); // Open the sidebar for larger screens
+			setIsOpen(true);
 		}
 	};
 
 	useEffect(() => {
-		// Initially, update the sidebar state based on window width
 		updateSidebarState();
-
-		// Add an event listener to update the sidebar state when the window is resized
 		window.addEventListener("resize", updateSidebarState);
 
-		// Clean up the event listener when the component unmounts
 		return () => {
 			window.removeEventListener("resize", updateSidebarState);
 		};
@@ -110,9 +106,7 @@ const Sidebar = ({ chat, setCurrent, current, setValue, setMessages }) => {
 							Upgrade to Plus <span>NEW</span>
 						</p>
 					</nav>
-					{/* <div> */}
 					<Logout />
-					{/* </div> */}
 				</Sidebars>
 			) : (
 				<Open onClick={toggleBar}>
@@ -133,7 +127,6 @@ const Empty = styled.div`
 	height: 100%;
 	background-image: linear-gradient(to left, #202123, transparent);
 	opacity: 1;
-	/* border: solid red 1px; */
 
 	&:hover {
 		background-image: linear-gradient(to left, rgba(52, 53, 65), transparent);
@@ -157,7 +150,6 @@ const Li = styled.li`
 	margin: 0.5em 0;
 	width: 13.5em;
 	cursor: pointer;
-	/* border: solid pink 1px; */
 
 	&:hover {
 		background-color: rgba(52, 53, 65);
