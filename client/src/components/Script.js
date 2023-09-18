@@ -10,6 +10,7 @@ import {
 	FiClipboard,
 } from "react-icons/fi/index.esm.js";
 import Scroll from "./Scroll.js";
+import { useAuth0 } from "@auth0/auth0-react";
 
 const Script = () => {
 	const [value, setValue] = useState("");
@@ -17,6 +18,7 @@ const Script = () => {
 	const [chat, setChat] = useState([]);
 	const [current, setCurrent] = useState(null);
 	const [isTyping, setIsTyping] = useState(false);
+	const { user, isAuthenticated } = useAuth0();
 
 	const handleInput = (e) => {
 		setValue(e.target.value);
@@ -47,9 +49,8 @@ const Script = () => {
 			}
 
 			const data = await response.json();
-			setMessages(data);
-			console.log(setMessages);
-			setValue(" ");
+			setMessages(data.choices[0].message);
+			// setValue(" ");
 		} catch (error) {
 			console.error("Error:", error);
 		}
@@ -59,6 +60,7 @@ const Script = () => {
 		if (!current && value && messages) {
 			setCurrent(value);
 		}
+
 		if (current && value && messages) {
 			setChat((chat) => [
 				...chat,
@@ -91,8 +93,6 @@ const Script = () => {
 	const unique = Array.from(
 		new Set(chat.map((currentChat) => currentChat.title))
 	);
-
-	console.log(chat);
 
 	return (
 		<>
@@ -236,6 +236,11 @@ const Div = styled.div`
 		width: 2em;
 		height: 2em;
 	}
+
+	@media only screen and (max-width: 480px) {
+		padding: 1em;
+
+	}
 `;
 
 const Icons = styled.div`
@@ -254,7 +259,6 @@ const Icons = styled.div`
 `;
 
 const Bottom = styled.div`
-	/* border: solid pink 1px; */
 	display: flex;
 	justify-content: center;
 	position: fixed;
@@ -267,6 +271,10 @@ const Bottom = styled.div`
 		#353740 58.85%
 	);
 	background: linear-gradient(to bottom, rgba(53, 55, 64, 0), #353740 58.85%);
+
+	@media only screen and (max-width: 480px) {
+		max-width: 21em;
+	}
 `;
 
 const Input = styled.div`
@@ -276,6 +284,11 @@ const Input = styled.div`
 	padding: 1rem 6rem 1rem 0;
 	max-width: 55em;
 	border-color: hsla(0, 0%, 100%, 0.2);
+
+	@media only screen and (max-width: 480px) {
+		margin: 0;
+		padding: 1em 0;
+	}
 `;
 
 const Text = styled.div`
@@ -289,6 +302,8 @@ const Text = styled.div`
 	display: flex;
 	padding: 1rem 0;
 	position: relative;
+
+
 
 	textarea {
 		outline: none;
@@ -353,5 +368,9 @@ const FootText = styled.div`
 		text-decoration-line: underline;
 		cursor: pointer;
 		color: rgba(197, 197, 210);
+	}
+
+	@media only screen and (max-width: 480px) {
+		font-size: 0.6em;
 	}
 `;

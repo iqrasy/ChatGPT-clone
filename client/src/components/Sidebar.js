@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { GoPerson } from "react-icons/go/index.esm.js";
 import { BsChatLeft } from "react-icons/bs/index.esm.js";
@@ -33,10 +33,31 @@ const Sidebar = ({ chat, setCurrent, current, setValue, setMessages }) => {
 		setIsOpen(!isOpen);
 	};
 
+	const updateSidebarState = () => {
+		if (window.innerWidth <= 480) {
+			setIsOpen(false); // Close the sidebar for small screens
+		} else {
+			setIsOpen(true); // Open the sidebar for larger screens
+		}
+	};
+
+	useEffect(() => {
+		// Initially, update the sidebar state based on window width
+		updateSidebarState();
+
+		// Add an event listener to update the sidebar state when the window is resized
+		window.addEventListener("resize", updateSidebarState);
+
+		// Clean up the event listener when the component unmounts
+		return () => {
+			window.removeEventListener("resize", updateSidebarState);
+		};
+	}, []);
+
 	return (
 		<div>
 			{isOpen ? (
-				<Sidebars>
+				<Sidebars isOpen={isOpen}>
 					<div style={{ display: "flex" }}>
 						<New onClick={newChat}>+ New chat</New>
 						<Closed onClick={toggleBar}>
@@ -200,9 +221,9 @@ const Sidebars = styled.section`
 		font-size: 0.9em;
 	}
 
-	/* @media (min-width: 768px) .scrollbar-trigger ::-webkit-scrollbar-thumb {
-		visibility: hidden;
-	} */
+	@media only screen and (max-width: 480px) {
+		width: ${(props) => (props.isOpen ? "16.2em" : "0")};
+	}
 `;
 
 const Div = styled.div`
@@ -249,6 +270,10 @@ const New = styled.button`
 		background-color: rgba(64, 64, 79);
 		transition-duration: 0.2s;
 	}
+
+	@media only screen and (max-width: 480px) {
+		margin: 1em;
+	}
 `;
 
 const Open = styled.button`
@@ -283,5 +308,10 @@ const Closed = styled.button`
 	&:hover {
 		background-color: rgba(64, 64, 79);
 		transition-duration: 0.2s;
+	}
+
+	@media only screen and (max-width: 480px) {
+		margin: 0.7em 0;
+		font-size: 0.7em;
 	}
 `;

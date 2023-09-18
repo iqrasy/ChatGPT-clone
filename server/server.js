@@ -1,32 +1,36 @@
 import express from "express";
 import morgan from "morgan";
 import fetch from "node-fetch";
+import cors from "cors";
 const { OPENAI_API_KEY } = process.env;
 
 const app = express();
 const PORT = 8000;
 
+
 app
 	.use(express.json())
 	.use(morgan("dev"))
+	.use(cors())
 
-	.post("/api/chat", async (req, res) => {
-		const userInput = req.body.messages;
+	.post("/completions", async (req, res) => {
+		const options = {
+			method: "POST",
+			headers: {
+				Authorization: `Bearer ${OPENAI_API_KEY}`,
+				"Content-type": "application/json",
+			},
+			body: JSON.stringify({
+				model: "gpt-3.5-turbo",
+				messages: [{ role: "user", content: "how are you?" }],
+				max_tokens: 100,
+			}),
+		};
+		// const userInput = req.body.messages;
 		try {
 			const response = await fetch(
 				"https://api.openai.com/v1/chat/completions",
-				{
-					method: "POST",
-					headers: {
-						Authorization: `Bearer ${OPENAI_API_KEY}`,
-						"Content-type": "application/json",
-					},
-					body: JSON.stringify({
-						model: "gpt-3.5-turbo",
-						messages: [{ role: "user", content: userInput }],
-						max_tokens: 100,
-					}),
-				}
+				options
 			);
 
 			if (!response.ok) {
@@ -34,6 +38,7 @@ app
 			}
 
 			const data = await response.json();
+			res.send(data);
 			console.log(data);
 		} catch (error) {
 			console.error("Error:", error);

@@ -106,6 +106,10 @@ const Div = styled.div`
 	width: 100%;
 	color: rgba(210, 146, 255);
 
+	@media only screen and (max-width: 480px) {
+		display: none;
+	}
+
 	div {
 		font-size: 0.6em;
 		display: flex;
@@ -163,6 +167,14 @@ const Log = styled.div`
 	align-items: center;
 	position: relative;
 	width: 55em;
+
+	@media only screen and (max-width: 480px) {
+		width: 100%;
+		height: 55rem;
+		display: flex;
+		/* margin: 0; */
+		/* padding: 0; */
+	}
 `;
 
 const Image = styled.div`

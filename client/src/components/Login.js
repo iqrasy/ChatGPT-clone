@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React, { useEffect } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
@@ -42,6 +42,17 @@ const Main = styled.div`
 	width: 100%;
 	margin: 1.25rem;
 	text-align: center;
+
+	h1 {
+		font-size: 1.2em;
+		line-height: 1.25;
+		margin: 0;
+		font-weight: 600;
+
+		@media only screen and (max-width: 480px) {
+			padding-right: 1.3rem;
+		}
+	}
 `;
 
 const Div = styled.div`
@@ -49,13 +60,7 @@ const Div = styled.div`
 	row-gap: 0;
 	grid-template-columns: repeat(2, minmax(0, 1fr));
 	column-gap: 0.75rem;
-
-	h1 {
-		font-size: 1em;
-		line-height: 1.25;
-		margin: 0;
-		font-weight: 600;
-	}
+	text-align: center;
 
 	button {
 		color: rgba(255, 255, 255, 1);
@@ -79,5 +84,18 @@ const Div = styled.div`
 		&:hover {
 			background-color: #0000ff;
 		}
+
+		@media only screen and (max-width: 480px) {
+			margin: 0.5rem 0;
+			width: 22rem;
+		}
+	}
+	@media only screen and (max-width: 480px) {
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-start;
+		align-items: flex-start;
+		position: relative;
+		right: 5rem;
 	}
 `;

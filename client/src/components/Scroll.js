@@ -52,7 +52,7 @@ const Icon = styled.div`
 	border-radius: 10em;
 	transition: all 0.5s ease-in-out;
 
-	button{
+	button {
 		background-color: transparent;
 		outline: none;
 		border: none;
@@ -67,21 +67,7 @@ const Icon = styled.div`
 		border: 2px solid #551b54;
 	}
 
-	/* @keyframes movebtn {
-		0% {
-			transform: translateY(0px);
-		}
-		25% {
-			transform: translateY(20px);
-		}
-		50% {
-			transform: translateY(0px);
-		}
-		75% {
-			transform: translateY(-20px);
-		}
-		100% {
-			transform: translateY(0px);
-		}
-	} */
+	@media only screen and (max-width: 480px) {
+		display: none;
+	}
 `;

@@ -4,7 +4,6 @@ import { GoShare } from "react-icons/go/index.esm.js";
 import Sidebar from "./Sidebar.js";
 
 const Header = () => {
-	
 	return (
 		<HeaderContainer>
 			<nav>
@@ -33,16 +32,10 @@ const HeaderContainer = styled.div`
 		align-items: center;
 	}
 
-	@media (max-width: 768px) {
-		nav {
-			flex-direction: column;
-			align-items: flex-start;
-		}
-
-		Icon {
-			margin-top: 0.5rem;
-		}
+	@media only screen and (max-width: 480px) {
+		padding: 1.5rem 0 ;
 	}
+
 `;
 
 const Title = styled.div`
@@ -51,10 +44,14 @@ const Title = styled.div`
 		font-size: 0.875rem;
 		text-align: center;
 	}
+
+	@media only screen and (max-width: 480px) {
+		p{
+			font-size: 0.7rem;
+		}
+	}
 `;
 
 const Icon = styled.div`
 	margin-right: 1rem;
 `;
-
-
